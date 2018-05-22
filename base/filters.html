@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Filtros en Vue.js</title>
+</head>
+<body>
+    <div id="root">
+        <h1>{{ Titulo | uppercase }}</h1>
+        <h2>{{ Subtitulo | lowercase }}</h2>
+        <h2>{{ Subtitulo | lowercase | capitalize }}</h2>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#root',
+            data: {
+                Titulo: 'Vue Framework JavaScript',
+                Subtitulo: 'Estoy aprendiendo view.js'
+            },
+            filters: {
+                uppercase: (str) => {
+                    return str.toUpperCase();
+                },
+                lowercase: (str) => {
+                    return str.toLowerCase();
+                },
+                capitalize: (str) => {
+                    x = str.trim().charAt(0);
+                    return str.replace(x,x.toUpperCase());
+                }
+            }
+        })
+    </script>
+</body>
+</html>
